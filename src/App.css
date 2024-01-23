@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
@@ -36,3 +37,92 @@
     transform: rotate(360deg);
   }
 }
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-app-style {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.top-app-style {
+  width: 1000px;
+  height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  margin: 40px;
+}
+
+.header-app-style
+{
+  width: 800px;
+  height: 800px;
+  max-width: 1200px;
+  min-width: 800px;
+
+  border: 10px solid green;
+  border-radius: 10px;
+}
+.app-style {
+  width: 800px;
+  height: 80px;
+  size : 40px;
+  color : darkgreen;
+  margin: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.header-name {
+  display: flex;
+  background-color: lightgreen;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 15px 20px;
+}
+
+.section-name {
+  size : 40px;
+  color : darkgreen;
+  margin: 40px 40px 20px 40px;
+
+  height: 50px;
+  width: 150px;
+}
+
+.total-style {
+  width: 650px;
+  height: 50px;
+  border: 4px solid skyblue;
+  border-radius: 10px;
+  margin : 20px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.contents-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-data-style{
+  size: 20px;
+  height : 50px;
+  padding: 5px;
+  margin: 10px;
+}
+
+
+
+
+
