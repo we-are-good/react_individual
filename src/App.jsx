@@ -1,5 +1,7 @@
 import './App.css';
 import { useState } from 'react';
+import ListIn from './component/ListIn.jsx';
+import DoneListIn from './component.jsx/DoneListIn.jsx';
 
 function App() {
   const [toDoList, setToDoList] = useState([
@@ -95,34 +97,11 @@ function App() {
             </div>
 
       {toDoList.map((list) => {
-      return (
-        <div className='app-style'>
-          <div className='total-style'>
-          <div className='contents-style'>
-          <div className='input-data-style'>
-            {list.context}
-          </div>
-          
-          <div className='input-data-style'>
-          { list.project } : { list.isDone }
-          </div>
-
-          <div className='input-data-style'>
-          <button key = {list.index} 
-            onClick = {() => {
-            removeList(list.index)}}>
-            삭제하기
-          </button>
-          </div>
-
-          <div className='input-data-style'>
-          <button onClick = {() => {
-          completedList(list.index)
-          }}> 완료 </button>
-          </div>
-          </div>
-          </div>
-          </div>
+      return ( <ListIn 
+          key = {list.index}
+          list={list} 
+          removeList={removeList} 
+          completedList={completedList}/>
       )})}
       
       <div className='section-name'>
@@ -130,37 +109,17 @@ function App() {
       </div>
 
       {alreadyDoneList.map((list) => {return (
-      <div className='app-style'>
-        <div className='total-style'>
-        <div className='contents-style'>
-
-        <div className='input-data-style'>
-        {list.context}
-        </div>
-        <div className='input-data-style'>
-        {list.project} : {list.isDone}
-        </div>
-        <div className='input-data-style'>
-        <button key = {list.index} 
-            onClick = {() => {
-              removeList(list.index)}}>
-            삭제하기
-        </button>
-        </div>
-        <div className='input-data-style'>
-        <button onClick = {() => {
-          shiftCompletedList(list.index)
-        }}> 취소 </button>
-        </div>
-
-        </div>
-        </div>
-
-        </div>
+        <DoneListIn 
+        key={list.index}
+        list = {list} 
+        removeList={removeList}
+        shiftCompletedList={shiftCompletedList}
+        />
         )})}
        </div>
     </div>
   );
 }
+
 
 export default App;
