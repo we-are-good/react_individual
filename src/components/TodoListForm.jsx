@@ -28,7 +28,9 @@ function TodoListForm() {
       date: date,
       isDone: false,
     };
-
+    if (!newTodoList.title || !newTodoList.content) {
+      return alert("할 일을 등록해주세요.");
+    }
     setTodoList((todoList) => [newTodoList, ...todoList]);
     setTodoTitle("");
     setToDoContent("");
@@ -118,7 +120,7 @@ function TodoListForm() {
           </button>
         </footer>
       </article>
-      <div> working </div>
+      <div className="top-nav-style"> working </div>
       {workingList.map((workingList) => (
         <TodoListAdd
           key={workingList.id}
@@ -127,7 +129,7 @@ function TodoListForm() {
           isDoneToggle={isDoneToggle}
         />
       ))}
-      <div> Done</div>
+      <div className="top-nav-style"> Done</div>
 
       {doneList.map((doneList) => (
         <TodoListAdd
