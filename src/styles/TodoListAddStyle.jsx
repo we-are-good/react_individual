@@ -56,7 +56,7 @@ export const ToDoListTitleInStyle = styled.input`
 export const ToDoListContentStyle = styled.div`
   width: 8rem;
   font-size: 1.2rem;
-
+  text-decoration: ${({ isDone }) => (isDone ? "line-through" : "none")};
   background-color: transparent;
   border: 0;
 `;

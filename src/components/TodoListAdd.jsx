@@ -28,7 +28,7 @@ function TodoListAdd({ todoList, todoListNewdelete, isDoneToggle }) {
       <TopArticleStyle>
         <ToDoListInputStyle>
           <ToDoListTitleStyle>{title}</ToDoListTitleStyle>
-          <ToDoListContentStyle>{content}</ToDoListContentStyle>
+          <ToDoListContentStyle isDone={isDone}>{content}</ToDoListContentStyle>
           <ToDoListDateStyle>{americaDate}</ToDoListDateStyle>
         </ToDoListInputStyle>
 
