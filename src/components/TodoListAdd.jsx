@@ -1,5 +1,16 @@
 import React from "react";
 import TodoListDelete from "./TodoListDelete";
+import {
+  TwoItemSort,
+  TopArticleStyle,
+  ToDoListInputStyle,
+  ToDoListTitleStyle,
+  ToDoListContentStyle,
+  ToDoListDateStyle,
+  TwoButtonStyle,
+  AddButtonStyle,
+} from "../styles/TodoListAddStyle";
+import GlobalStyle from "../GlobalStyles";
 
 function TodoListAdd({ todoList, todoListNewdelete, isDoneToggle }) {
   const { id, title, content, date, isDone } = todoList;
@@ -12,25 +23,26 @@ function TodoListAdd({ todoList, todoListNewdelete, isDoneToggle }) {
   });
 
   return (
-    <div className="two-item-sort">
-      <article className="top-article-style">
-        <header className="toDoList-input-style">
-          <div className="toDoList-title-style">{title}</div>
-          <div classNames="toDoList-content-style">{content}</div>
-          <div className="toDoList-date-style">{americaDate}</div>
-        </header>
+    <TwoItemSort>
+      <GlobalStyle />
+      <TopArticleStyle>
+        <ToDoListInputStyle>
+          <ToDoListTitleStyle>{title}</ToDoListTitleStyle>
+          <ToDoListContentStyle>{content}</ToDoListContentStyle>
+          <ToDoListDateStyle>{americaDate}</ToDoListDateStyle>
+        </ToDoListInputStyle>
 
-        <footer className="two-button-style">
+        <TwoButtonStyle>
           <TodoListDelete
             todoListNewdelete={todoListNewdelete}
             todoList={todoList}
           />
-          <button className="add-button-style" onClick={() => isDoneToggle(id)}>
+          <AddButtonStyle onClick={() => isDoneToggle(id)}>
             {isDone ? "취소" : "완료"}
-          </button>
-        </footer>
-      </article>
-    </div>
+          </AddButtonStyle>
+        </TwoButtonStyle>
+      </TopArticleStyle>
+    </TwoItemSort>
   );
 }
 

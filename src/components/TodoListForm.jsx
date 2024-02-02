@@ -2,6 +2,18 @@ import React, { useState } from "react";
 import TodoListAdd from "./TodoListAdd";
 import Header from "./Header";
 import TodoListDelete from "./TodoListDelete";
+import GlobalStyle from "../GlobalStyles";
+import {
+  TopArticleStyle,
+  ToDoListInputStyle,
+  TwoButtonStyle,
+  AddButtonStyle,
+  ToDoListTitleInStyle,
+  ToDoListContentInStyle,
+  ToDoListDateInStyle,
+} from "../styles/TodoListAddStyle";
+
+import { TopNavStyle } from "../styles/HeaderStyle";
 
 function TodoListForm() {
   const [toDoTitle, setTodoTitle] = useState("");
@@ -79,11 +91,11 @@ function TodoListForm() {
 
   return (
     <>
+      <GlobalStyle />s
       <Header sortOrder={sortOrder} onChangeSortOrder={onChangeSortOrder} />
-      <article className="top-article-style">
-        <header className="toDoList-input-style">
-          <input
-            className="toDoList-title-style"
+      <TopArticleStyle>
+        <ToDoListInputStyle>
+          <ToDoListTitleInStyle
             required
             maxLength={10}
             placeholder="Todo List"
@@ -92,8 +104,7 @@ function TodoListForm() {
             onChange={toDoTitleChange}
           />
 
-          <input
-            className="toDoList-content-style"
+          <ToDoListContentInStyle
             required
             placeholder="Todo Context"
             type="text"
@@ -101,26 +112,23 @@ function TodoListForm() {
             onChange={toDoContentChange}
           />
 
-          <input
-            className="toDoList-date-style"
+          <ToDoListDateInStyle
             required
             type="date"
             value={date}
             onChange={todoDate}
           />
-        </header>
+        </ToDoListInputStyle>
 
-        <footer className="two-button-style">
+        <TwoButtonStyle>
           <TodoListDelete
             todoListNewdelete={todoListNewdelete}
             todoList={todoList}
           />
-          <button onClick={todoListNewAddition} className="add-button-style">
-            Add
-          </button>
-        </footer>
-      </article>
-      <div className="top-nav-style"> working </div>
+          <AddButtonStyle onClick={todoListNewAddition}>Add</AddButtonStyle>
+        </TwoButtonStyle>
+      </TopArticleStyle>
+      <TopNavStyle> working </TopNavStyle>
       {workingList.map((workingList) => (
         <TodoListAdd
           key={workingList.id}
@@ -129,8 +137,7 @@ function TodoListForm() {
           isDoneToggle={isDoneToggle}
         />
       ))}
-      <div className="top-nav-style"> Done</div>
-
+      <TopNavStyle> Done</TopNavStyle>
       {doneList.map((doneList) => (
         <TodoListAdd
           key={doneList.id}

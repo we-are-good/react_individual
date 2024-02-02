@@ -1,16 +1,18 @@
 import React from "react";
+import { DeleteButtonStyle } from "../styles/TodoListAddStyle";
+import GlobalStyle from "../GlobalStyles";
 
 function TodoListDelete({ todoListNewdelete, todoList }) {
   return (
     <div>
-      <button
+      <GlobalStyle />
+      <DeleteButtonStyle
         onClick={() => {
           todoListNewdelete(todoList.id);
         }}
-        className="delete-button-style"
       >
         Delete
-      </button>
+      </DeleteButtonStyle>
     </div>
   );
 }
